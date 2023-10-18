@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import City from "./components/City";
@@ -10,6 +10,7 @@ import AppLayout from "./pages/AppLayout";
 import PageNotFound from "./pages/PageNotFound";
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
+import Form from "./components/Form";
 
 const BASE_URL = "http://localhost:8000/cities";
 function App() {
@@ -24,7 +25,7 @@ function App() {
         // console.log(citiesData);
         const data = await res.json();
         setCities(data);
-        console.log(data);
+        // console.log(data);
       } catch {
         alert("There was an errro loading data");
       } finally {
@@ -42,10 +43,7 @@ function App() {
         <Route path="pricing" element={<Pricing />}></Route>
         <Route path="login" element={<Login />}></Route>
         <Route path="app" element={<AppLayout />}>
-          <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          />
+          <Route index element={<Navigate replace to="cities" />} />
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
@@ -55,7 +53,7 @@ function App() {
             path="countries"
             element={<CountryList cities={cities} isLoading={isLoading} />}
           ></Route>
-          <Route path="form" element={<p>Form</p>}></Route>
+          <Route path="form" element={<Form />}></Route>
         </Route>
 
         <Route path="*" element={<PageNotFound />}></Route>
