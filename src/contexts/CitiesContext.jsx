@@ -28,7 +28,7 @@ function CitiesProvider({ children }) {
   async function getCity(id) {
     try {
       setIsLoading(true);
-      console.log(BASE_URL + "/" + id);
+      //   console.log(BASE_URL + "/" + id);
       const res = await fetch(BASE_URL + "/" + id);
       //   const res = await fetch("http://localhost:8000/cities/73930385");
       // console.log(citiesData);
