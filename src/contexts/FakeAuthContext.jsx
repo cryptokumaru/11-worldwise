@@ -22,7 +22,8 @@ const FAKE_USER = {
   name: "Jack",
   email: "jack@example.com",
   password: "qwerty",
-  avatar: "https://i.pravatar.cc/100?u=zz",
+  //   avatar: "https://i.pravatar.cc/100?u=zz",
+  avatar: "https://i.pravatar.cc/100",
 };
 
 function AuthProvider({ children }) {
@@ -34,6 +35,7 @@ function AuthProvider({ children }) {
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password) {
       dispatch({ type: "login", payload: FAKE_USER });
+      console.log(isAuthenticated);
     }
   }
 

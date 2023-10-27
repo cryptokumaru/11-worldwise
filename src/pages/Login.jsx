@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import PageNav from "../components/PageNav";
 import { useAuth } from "../contexts/FakeAuthContext";
@@ -8,14 +9,25 @@ export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
-  const { login, logout } = useAuth();
+  const { isAuthenticated, login } = useAuth();
   // console.log(context);
   // useEffect(() => {
   //   const { login } = useAuth();
   // }, []);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // console.log("effect", isAuthenticated);
+    if (isAuthenticated) {
+      navigate("/app", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
+
   function handleLogin(e) {
     e.preventDefault();
-    login(email, password);
+    if (email && password) {
+      login(email, password);
+    }
   }
 
   return (
