@@ -26,16 +26,16 @@
       "id": 17806751
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "cityName": "Irvine-Lake Forest",
+      "country": "US",
+      "emoji": "🇺🇸",
+      "date": "2023-10-27T02:56:35.640Z",
+      "notes": "z",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": "33.725326946710375",
+        "lng": "-117.74217129997903"
       },
-      "id": 98443197
+      "id": 73930386
     }
   ]
 }
